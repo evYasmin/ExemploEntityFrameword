@@ -38,7 +38,7 @@ namespace View.Controllers
         {
             List<Categoria> categorias = repository.ObterTodos(
                 quantidade, pagina, buscar, colunaOrdem, ordem);
-            return Json(categorias);
+            return Json(new { data = categorias });
         }
         [HttpPost]
         public JsonResult Cadastrar([FromBody]Categoria categoria)
