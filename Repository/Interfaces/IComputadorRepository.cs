@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Repository.Interfaces
 {
-    interface IComputadorRepository
+    public interface IComputadorRepository
     {
     }
 }

@@ -63,7 +63,9 @@ namespace Repository.Repositories
                         query = query.OrderBy(x => x.Nome);
                         break;
                 }
-
+            }
+            else
+            {
                 switch (colunaOrdem)
                 {
                     case "id":
@@ -81,5 +83,8 @@ namespace Repository.Repositories
                 .Take(quantidade)
                 .ToList();
         }
+
+
+        
     }
 }

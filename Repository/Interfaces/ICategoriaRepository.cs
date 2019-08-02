@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Repository.Interfaces
 {
-    interface ICategoriaRepository
+    public interface ICategoriaRepository
     {
         int Inserir(Categoria categoria);
 

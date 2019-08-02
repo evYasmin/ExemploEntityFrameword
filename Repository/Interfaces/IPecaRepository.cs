@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Repository.Interfaces
 {
-    interface IPecaRepository
+    public interface IPecaRepository
     {
     }
 }
