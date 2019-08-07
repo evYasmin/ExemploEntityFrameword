@@ -49,7 +49,7 @@ namespace Repository.Repositories
         public List<Categoria> ObterTodos(int quantidade, int pagina, string busca, string colunaOrdem, string ordem)
         {
             var query = context.Categorias
-                .Where(x => x.Nome.Contains(busca))
+                .Where(x => x.RegistroAtivo && x.Nome.Contains(busca))
                 .AsQueryable();
             #region Ordenar
             if (ordem == "ASC")
