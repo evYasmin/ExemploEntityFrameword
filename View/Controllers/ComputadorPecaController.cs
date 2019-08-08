@@ -28,11 +28,11 @@ namespace View.Controllers
             return Json(new { id });
         }
 
-        [HttpPost , Route("apagar")]
+        [HttpPost, Route("apagar")]
         public JsonResult Apagar(int id)
         {
 
-            bool apagado= repository.Apagar(id);
+            bool apagado = repository.Apagar(id);
             return Json(new { status = apagado });
         }
 
@@ -41,5 +41,15 @@ namespace View.Controllers
         {
             return Json(repository.ObterTodosPeloIdComputador(idComputador));
         }
+
+        [HttpGet, Route("obterpeloid")]
+        public ActionResult ObterPeloId(int id);
+        {
+        var computadoresPeca = Repository.ObterPeloId(id);
+        }
+
+        if(ComputadorPeca == null)
+            return NotFound();
+
     }
 }
