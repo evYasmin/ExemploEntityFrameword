@@ -8,7 +8,8 @@ using Repository.Interfaces;
 
 namespace View.Controllers
 {
-    [Route("computador/")]
+    [Route("computador/," +
+        "")]
     public class ComputadorController : Controller
     {
         private IComputadorRepository repository;
@@ -21,11 +22,11 @@ namespace View.Controllers
             return View();
         }
 
-        [HttpPost, Route("inserir")]
-        public JsonResult Inserir([FromForm]Computador computador)
+        [HttpPost, Route("cadastro")]
+        public ActionResult Cadastro([FromForm]Computador computador)
         {
             var id = repository.Inserir(computador);
-            return Json(new { id = id });
+            return RedirectToAction("Editar", new { id = id });
         }
 
         [HttpPost, Route("alterar")]
@@ -54,6 +55,12 @@ namespace View.Controllers
         public ActionResult ObterTodos()
         {
             return Json(repository.ObterTodos());
+        }
+
+        [HttpGet, Route("cadastro")]
+        public ActionResult Cadastro()
+        {
+            return View();
         }
     }
 

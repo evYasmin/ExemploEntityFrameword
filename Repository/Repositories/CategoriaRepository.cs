@@ -84,7 +84,11 @@ namespace Repository.Repositories
                 .ToList();
         }
 
-
-        
+        public List<Categoria> ObterTodosSelect2(string pesquisa)
+        {
+            return context.Categorias
+                .Where(x => x.RegistroAtivo && x.Nome.Contains(pesquisa))
+                .OrderBy(x => x.Nome).ToList();
+        }
     }
 }

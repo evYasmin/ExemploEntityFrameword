@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Cadastro";
+}
+@section Scripts{
+    <script src="~/js/Computador/computador-cadastro.js"></script>
+}
+<h2>Cadastro</h2>
+
+<form action="@Url.Action("Cadastro")" method="post">
+    <div class="form-group">
+        <label for="computador=cadastro-categoria">Categoria</label>
+        <select class="form-control" id="computador-cadastro-categoria" name="idCategoria">
+            <option>Selecione uma categoria</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="computador-cadastro-nome">Nome</label>
+        <input id="computador-cadastro-nome" name="nome" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="computador-cadastro-peca">Preço</label>
+        <input id="computador-cadastro-peca" name="preco" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+</form>
+

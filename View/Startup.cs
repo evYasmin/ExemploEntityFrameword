@@ -38,7 +38,12 @@ namespace View
             //Injeção de dependência
             services.AddDbContext<SistemaContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection")));
 
+
+
             services.AddTransient(typeof(ICategoriaRepository), typeof(CategoriaRepository));
+            services.AddTransient(typeof(IPecaRepository), typeof(PecaRepository));
+            services.AddTransient(typeof(IComputadorPecaRepository), typeof(ComputadorPecaRepository));
+            services.AddTransient(typeof(IComputadorRepository), typeof(ComputadorRepository));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

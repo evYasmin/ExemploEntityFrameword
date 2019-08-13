@@ -43,13 +43,13 @@ namespace View.Controllers
         }
 
         [HttpGet, Route("obterpeloid")]
-        public ActionResult ObterPeloId(int id);
+        public ActionResult ObterPeloId(int id)
         {
-        var computadoresPeca = Repository.ObterPeloId(id);
+            var computadorPeca = repository.ObterPeloId(id);
+
+            if (computadorPeca == null)
+                return NotFound();
+            return Json(computadorPeca);
         }
-
-        if(ComputadorPeca == null)
-            return NotFound();
-
     }
 }

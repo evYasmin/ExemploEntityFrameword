@@ -15,6 +15,23 @@ namespace View.Controllers
         {
             this.repository = repository;
         }
+        [HttpGet, Route("categoria/obtertodosselect2")]
+        public JsonResult ObterTodosSelect2(string term = "")
+        {
+            term = term == null ? "" : term;
+
+            var categorias = repository.ObterTodosSelect2(term);
+            List<object> categoriasSelect2 = new List<object>();
+            foreach (Categoria categoria in categorias)
+            {
+                categoriasSelect2.Add(new
+                {
+                    id = categoria.Id,
+                    text = categoria.Nome
+                });
+            }
+            return Json(new { results = categoriasSelect2 });
+        }
         [HttpGet]
         public IActionResult Index()
         {
