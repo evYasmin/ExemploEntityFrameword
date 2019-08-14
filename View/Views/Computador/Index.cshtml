@@ -7,14 +7,19 @@
 
 <a class="btn btn-primary float-right mb-3" href="@Url.Action("Cadastro")">Novo Computador</a>
 
-<table class="table table-striped table-hover table-bordered mt-3" id="camputador-index">
+<table class="table table-striped table-hover table-bordered mt-3" id="computador-index">
     <thead class="thead-dark">
         <tr>
             <th>Código</th>
+            <th>Categoria</th>
             <th>Nome</th>
             <th>Valor</th>
-            <th>Valor</th>
+            <th>Ação</th>
         </tr>
     </thead>
 </table>
+
+@section Scripts{
+    <script src="~/js/Computador/computador-index.js"></script>
+}
 

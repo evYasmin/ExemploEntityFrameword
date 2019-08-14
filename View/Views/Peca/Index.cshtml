@@ -1,5 +1,5 @@
 ﻿<h2 class="text-center mt-3">Lista de Peças</h2>
-<button class="btn btn-primary mb-3  float-right" data-toggle="modal" data-target="#modal-peca-cadastro" >Nova Peça</button>
+<button class="btn btn-primary mb-3  float-right" data-toggle="modal" data-target="#modal-peca-cadastro">Nova Peça</button>
 
 <table class="table table-striped table-bordered table-hover mt-3" id="peca-index">
     <thead class="thead-dark">
@@ -11,3 +11,7 @@
     </thead>
 </table>
 <partial name="CadastroModal.cshtml" />
+
+@section Scripts{
+    <script src="~/js/peca/peca-index.js"></script>
+}

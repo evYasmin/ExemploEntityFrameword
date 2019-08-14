@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Model;
 using Repository.Interfaces;
 using System;
@@ -17,6 +18,7 @@ namespace Repository.Repositories
         }
         public bool Alterar(Computador computador)
         {
+            computador.RegistroAtivo = true;
             context.Computadores.Update(computador);
             return context.SaveChanges() == 1;
         }
@@ -40,12 +42,18 @@ namespace Repository.Repositories
 
         public Computador ObterPeloId(int id)
         {
-            return context.Computadores.FirstOrDefault(x => x.Id == id && x.RegistroAtivo);
+            return context.Computadores
+                .Include(x => x.Categoria)
+                .FirstOrDefault(x => x.Id == id && x.RegistroAtivo);
         }
 
         public List<Computador> ObterTodos()
         {
-            return context.Computadores.Where(x => x.RegistroAtivo).ToList();
+
+            return context.Computadores
+                .Include(x => x.Categoria)
+                .Where(x => x.RegistroAtivo)
+                .ToList();
         }
     }
 }

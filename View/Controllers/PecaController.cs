@@ -8,6 +8,8 @@ using Repository.Interfaces;
 
 namespace View.Controllers
 {
+    [Route("peca/")]
+ 
     public class PecaController : Controller
     {
         private IPecaRepository repository;
@@ -15,7 +17,6 @@ namespace View.Controllers
         {
             this.repository = repository;
         }
-        [Route("peca/")]
         public IActionResult Index()
         {
             return View();
@@ -49,7 +50,7 @@ namespace View.Controllers
         public JsonResult ObterTodos()
         {
             var pecas = repository.ObterTodos();
-            return Json(pecas);
+            return Json(new { data = pecas });
         }
 
         [HttpGet, Route("obterpeloid")]
